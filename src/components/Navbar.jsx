@@ -1,24 +1,23 @@
-
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
     <div style={navbarStyle}>
       <ul className='nav' style={navListStyle}>
-        <Link to='/add' style={linkStyle}>
-          <li style={navItemStyle}>add</li>
-        </Link>
-        <Link to='/todos' style={linkStyle}>
-          <li style={navItemStyle}>todos</li>
-        </Link>
-        <Link to='/liked' style={linkStyle}>
-          <li style={navItemStyle}>liked</li>
-        </Link>
-        <Link to='' style={linkStyle}>
-          <li style={navItemStyle}>basket</li>
-        </Link>
+        <ButtonLink to='/add' label='add' />
+        <ButtonLink to='/todos' label='todos' />
+        <ButtonLink to='/liked' label='liked' />
+        <ButtonLink to='' label='basket' />
       </ul>
     </div>
+  );
+}
+
+function ButtonLink({ to, label }) {
+  return (
+    <Link to={to} style={linkStyle}>
+      <li style={navItemStyle}>{label}</li>
+    </Link>
   );
 }
 
@@ -44,5 +43,5 @@ const linkStyle = {
 const navItemStyle = {
   padding: '8px',
   cursor: 'pointer',
+  border: '1px solid white', // Borderni qo'shish
 };
-
